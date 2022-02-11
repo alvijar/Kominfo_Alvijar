@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Feb 2022 pada 07.51
+-- Waktu pembuatan: 11 Feb 2022 pada 10.36
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -41,7 +41,7 @@ CREATE TABLE `data_keluarga` (
 
 CREATE TABLE `identiitas_pribadi` (
   `No_Urut` int(11) NOT NULL,
-  `Nama_Lengkap` int(5) NOT NULL,
+  `Nama_Lengkap` varchar(30) NOT NULL,
   `Status_Kawin` varchar(30) NOT NULL,
   `Agama` enum('Islam','Kristen','Khatolik','Hindu','Budha','Kong Hu Cu') NOT NULL,
   `Tempat` varchar(30) NOT NULL,
@@ -52,6 +52,13 @@ CREATE TABLE `identiitas_pribadi` (
   `Kartu_Keluarga` int(30) NOT NULL,
   `ID_Kemampuan` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `identiitas_pribadi`
+--
+
+INSERT INTO `identiitas_pribadi` (`No_Urut`, `Nama_Lengkap`, `Status_Kawin`, `Agama`, `Tempat`, `Tgl_Lahir`, `J_Kelamin`, `Kewarganegaraan`, `Pendidikan_Terakhir`, `Kartu_Keluarga`, `ID_Kemampuan`) VALUES
+(1, 'Alvijar Akbar Pahlevi', 'Belum Kawin', 'Islam', 'Bandar Lampung', '1998-03-11', 'Laki-laki', 'Indonesia', 'S1', 12345678, 1);
 
 -- --------------------------------------------------------
 
@@ -96,7 +103,7 @@ ALTER TABLE `kemampuan`
 -- AUTO_INCREMENT untuk tabel `identiitas_pribadi`
 --
 ALTER TABLE `identiitas_pribadi`
-  MODIFY `No_Urut` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `No_Urut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -6,23 +6,23 @@ use CodeIgniter\Model;
 
 class kemampuan extends Model
 {
-    protected $table = "identitas_pribadi";
-    protected $primaryKey = "No_Urut";
+    protected $table = "kemampuan";
+    protected $primaryKey = "ID_Kemampuan";
     protected $allowedFields = ['ID_Kemampuan','Dapat_Baca_Huruf'];
     protected $useAutoIncrement = true;
     protected $useTimestamps = false;
     
     public function getkemampuan(){
         $session = session();
-        $data = $session->get('KTP');
-        return $this->db->table('data_keluarga')
-        ->where('KTP',['KTP'=> $data])
+        $data = $session->get('ID_Kemampuan');
+        return $this->db->table('kemampuan')
+        ->where('ID_Kemampuan',['ID_Kemampuan'=> $data])
         ->get()->getResultArray();
     }
 
     // code tabel agama menggunakan enum
-    public function getdapatbacahuruf(){
-        return $this->db->table('Dapat_Baca_Huruf')
-        ->get()->getResultArray();
-    }
+    // public function getdapatbacahuruf(){
+    //     return $this->db->table('Dapat_Baca_Huruf')
+    //     ->get()->getResultArray();
+    // }
 }
