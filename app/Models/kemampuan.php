@@ -8,11 +8,21 @@ class kemampuan extends Model
 {
     protected $table = "identitas_pribadi";
     protected $primaryKey = "No_Urut";
-
+    protected $allowedFields = ['ID_Kemampuan','Dapat_Baca_Huruf'];
     protected $useAutoIncrement = true;
     protected $useTimestamps = false;
     
     public function getkemampuan(){
-        $allowedFields = ['No_Urut','Nama_Lengkap','Status_Kawin','Agama','Tempat','Tgl_Lahir','J_Kelamin','Kewarganegaraan','Pendidikan_Terakhir','Kartu_Keluarga','ID_Kemampuan'];
+        $session = session();
+        $data = $session->get('KTP');
+        return $this->db->table('data_keluarga')
+        ->where('KTP',['KTP'=> $data])
+        ->get()->getResultArray();
+    }
+
+    // code tabel agama menggunakan enum
+    public function getdapatbacahuruf(){
+        return $this->db->table('Dapat_Baca_Huruf')
+        ->get()->getResultArray();
     }
 }
