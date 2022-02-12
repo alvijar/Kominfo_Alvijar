@@ -19,10 +19,4 @@ class kemampuan extends Model
         ->where('ID_Kemampuan',['ID_Kemampuan'=> $data])
         ->get()->getResultArray();
     }
-
-    // code tabel agama menggunakan enum
-    // public function getdapatbacahuruf(){
-    //     return $this->db->table('Dapat_Baca_Huruf')
-    //     ->get()->getResultArray();
-    // }
 }

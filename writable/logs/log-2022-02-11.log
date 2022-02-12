@@ -462,3 +462,27 @@ CRITICAL - 2022-02-11 04:12:18 --> Undefined index: KTP
 #8 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
 #9 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
 #10 {main}
+CRITICAL - 2022-02-11 21:05:14 --> Undefined variable: kemampuan
+#0 C:\xampp\htdocs\Kominfo_Alvijar\app\Views\landingpage.php(98): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 98, Array)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Common.php(1089): CodeIgniter\View\View->render('landingpage', Array, true)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(23): view('landingpage', Array)
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2022-02-11 21:30:44 --> Undefined variable: conn
+#0 C:\xampp\htdocs\Kominfo_Alvijar\app\Views\landingpage.php(35): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 35, Array)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Common.php(1089): CodeIgniter\View\View->render('landingpage', Array, true)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(23): view('landingpage', Array)
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

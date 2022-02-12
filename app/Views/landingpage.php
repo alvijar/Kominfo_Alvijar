@@ -32,7 +32,8 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach($identitas_p as $data): ?>
+        
+        <?php foreach($identitas_p as $data) :?>
         <tr>
           <td><?= $data['No_Urut'] ?></td>
           <td><?= $data['Nama_Lengkap'] ?></td>
@@ -51,7 +52,7 @@
     </table>
     <div class="form-style-10">
         <h2>Daftar Untuk Mengisi Tabel Kependudukan.</h2>
-        <form a method="post" action="">
+        <form a method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']);?>">
           <div class="">
             <input class="" name="Nama_Lengkap" type="text" placeholder="Nama Lengkap" required>
           </div>
@@ -59,18 +60,27 @@
             <input class="" name="Status_Kawin" type="text" placeholder="Status Kawin" required>
           </div>
           <div class="">
+            <label class="">Pilih Agama :</label>
             <select class="form-select" name="Agama" id="agama" required>
-              <option value="" disabled selected>Pilih Agama Anda</option>
+              <option value="" disabled selected>--Pilih-- </option>
+              <option value="Islam">Islam</option>
+              <option value="Kristen">Kristen</option>
+              <option value="Khatolik">Khatolik</option>
+              <option value="Budha">Budha</option>
+              <option value="Hindu">Hindu</option>
+              <option value="Kong Hu Cu">Kong Hu Cu</option>
             </select>
           </div>
           <div class="">
-              <label class="" for="inputDate">Tempat & Tanggal Lahir</label>
+            <label class="" for="inputDate">Tempat & Tanggal Lahir</label>
             <input class="" name="Tempat" type="text" placeholder="Tempat" required>
             <input class="" name="Tgl_Lahir" type="date" required>
           </div>
           <div class="">
             <select class="form-select" name="J_Kelamin" id="j_kelamin" required>
-              <option value="" disabled selected>Pilih Jenis Kelamin</option>
+              <option value="" disabled selected>--Pilih-- </option>
+              <option value="Laki-laki">Laki-laki</option>
+              <option value="Perempuan">Perempuan</option>
             </select>
           </div>
           <div class="">
@@ -83,8 +93,18 @@
             <input class="" name="KTP" type="text" placeholder="No. KTP" required>
           </div>
           <div class="">
+            <input class="" name="Alamat" type="text" placeholder="Alamat" required>
+          </div>
+          <div class="">
+            <label class="">Kemampuan :</label>
             <select class="form-select" name="ID_Kemampuan" id="id_kemampuan" required>
-              <option value="" disabled selected>Pilih </option>
+              <?php foreach ($kemampuan_ as $p) {?>
+                <option id="<?php echo $p["Dapat_Baca_Huruf"]; ?>" value="<?php echo $p["Dapat_Baca_Huruf"]; ?>">
+                  <option value="" disabled selected>--Pilih-- </option>
+                  <option value="Dapat" disabled selected>Dapat </option>
+                  <option value="Tidak" disabled selected>Tidak </option>
+                </option>
+              <?php } ?>
             </select>
           </div>
           <button class="" type="submit">Daftar</button>
