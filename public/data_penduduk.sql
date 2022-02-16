@@ -36,10 +36,10 @@ CREATE TABLE `data_keluarga` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `identiitas_pribadi`
+-- Struktur dari tabel `identitas_pribadi`
 --
 
-CREATE TABLE `identiitas_pribadi` (
+CREATE TABLE `identitas_pribadi` (
   `No_Urut` int(11) NOT NULL,
   `Nama_Lengkap` varchar(30) NOT NULL,
   `Status_Kawin` varchar(30) NOT NULL,
@@ -49,7 +49,7 @@ CREATE TABLE `identiitas_pribadi` (
   `J_Kelamin` enum('Laki-laki','Perempuan') NOT NULL,
   `Kewarganegaraan` varchar(20) NOT NULL,
   `Pendidikan_Terakhir` varchar(20) NOT NULL,
-  `Kartu_Keluarga` int(30) NOT NULL,
+  `KTP` int(30) NOT NULL,
   `ID_Kemampuan` int(5) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 

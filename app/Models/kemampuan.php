@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class kemampuan extends Model
+class Kemampuan extends Model
 {
     protected $table = "kemampuan";
     protected $primaryKey = "ID_Kemampuan";
@@ -13,10 +13,8 @@ class kemampuan extends Model
     protected $useTimestamps = false;
     
     public function getkemampuan(){
-        $session = session();
-        $data = $session->get('ID_Kemampuan');
         return $this->db->table('kemampuan')
-        ->where('ID_Kemampuan',['ID_Kemampuan'=> $data])
         ->get()->getResultArray();
     }
+    
 }

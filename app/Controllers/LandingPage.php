@@ -9,41 +9,23 @@ use CodeIgniter\Exceptions\PageNotFoundException;
 
 class LandingPage extends BaseController
 {
+    public function __construct()
+    {
+        //membuat user model untuk konek ke database 
+        $this->datapribadi = new Data_Pribadi();
+    }
     public function index()
     {
-        $datapribadi = new Data_Pribadi();
-        $data['identitas_p'] = $datapribadi->findAll();
-
-        $datakeluarga = new Data_Keluarga();
-        $data['data_k'] = $datakeluarga->findAll();
+        $model = new Data_Pribadi();
+        $data['identitas_p'] = $model->getdatapribadi();
         
-        $kemampuan = new Kemampuan();
-        $data['kemampuan_'] = $kemampuan->findAll();
-
-        echo view('landingpage', $data);
+        return view('landingpage', $data);
     }
-    // READ DATA
-    public function tampil_datapribadi($id){
-        $datapribadi = new Data_Pribadi();
-        $data['identitas_p'] = $datapribadi->where('No_Urut', $id)->first();
-       
-        if(!$datapribadi['No_Urut']){
-            throw PageNotFoundException::forPageNotFound();
-        }
-        echo view('landingpage',$data);
-        // <?php $query = mysqli_query($conn, "SELECT * FROM identitas_pribadi 
-        // INNER JOIN data_keluarga ON identitas_pribadi.KTP = data_keluarga.KTP 
-        // INNER JOIN kemampuan ON identitas_pribadi.ID_Kemampuan = kemampuan.ID_Kemampuan");
-        // $no = 1;
-    }
-    public function tampil_datakeluarga($id){
-        $datakeluarga = new Data_Keluarga();
-        $data['data_k'] = $datakeluarga->where('KTP', $id)->first();
+    public function membuat(){
+        $model = new Data_Keluarga();
+        $data['data_k'] = $model->getdatakeluarga();
         
-        if(!$datakeluarga['KTP']){
-            throw PageNotFoundException::forPageNotFound();
-        }
-        echo view('landingpage',$data);
+        return view('landingpage',$data);
     }
     public function tampil_kemampuan($id){
         $kemampuan = new Kemampuan();
@@ -58,30 +40,47 @@ class LandingPage extends BaseController
     // CREATE DATA
     public function tambah_datapribadi()
     {
-        // lakukan validasi
-        $validation =  \Config\Services::validation();
-        $validation->setRules(['title' => 'required']);
-        $isDataValid = $validation->withRequest($this->request)->run();
-
-        // jika data valid, simpan ke database
-        if($isDataValid){
-            $datapribadi = new Data_Pribadi();
-            $datapribadi->insert([
-                "Nama_Lengkap" => $this->request->getPost('Nama_Lengkap'),
-                "Status_Kawin" => $this->request->getPost('Status_Kawin'),
-                "Agama" => $this->request->getPost('Agama'),
-                "Tempat" => $this->request->getPost('Tempat'),
-                "Tgl_Lahir" => $this->request->getPost('Tgl_Lahir'),
-                "J_Kelamin" => $this->request->getPost('J_Kelamin'),
-                "Kewarganegaraan" => $this->request->getPost('Kewarganegaraan'),
-                "Pendidikan_Terakhir" => $this->request->getPost('Pendidikan_Terakhir'),
-                "KTP" => $this->request->getPost('KTP'),
-                "ID_Kemampuan" => $this->request->getPost('ID_Kemampuan'),
-            ]);
-            return redirect('landingpage');
-        }
-		
-        // tampilkan form create
-        echo view('admin_create_news');
+       //ambil data dari form post membuat
+       $data = $this->request->getPost();
+       //var_dump($data);
+       //ambil data penduduk di database yang nik sama 
+       $identitas_p = $this->Data_Pribadi->where('No_Urut', $data['No_Urut'])->first();
+       if($identitas_p){
+           //jika nik sudah terdaftar
+           session()->setFlashdata('info', '<div class="alert alert-danger text-center">NIK sudah terpakai!</div>');
+           return redirect()->to('Create');
+       }else{
+               //masukan data ke tabel penduduk
+               $this->Data_Pribadi->save([
+                   'No_Urut' => $data['No_Urut'],
+                   'Nama_Lengkap' => $data['Nama_Lengkap'],
+                   'Status_Kawin' => $data['Status_Kawin'],
+                   'Agama' => $data['Agama'],
+                   'Tempat' => $data['Tempat'],
+                   'Tgl_Lahir' => $data['Tgl_Lahir'],
+                   'J_Kelamin' => $data['J_Kelamin'],
+                   'Kewarganegaraan' => $data['Kewarganegaraan'],
+                   'Pendidikan_Terakhir' => $data['Pendidikan_Terakhir'],
+                   'KTP' => $data['KTP'],
+                   'ID_Kemampuan' => $data['ID_Kemampuan']    
+               ]);
+               //masukan data ke keluarga
+               $this->Data_Keluarga = new Data_Keluarga();
+               $this->Data_Keluarga->save([
+                   'KTP' => $data['KTP'],
+                   'Kartu_Keluarga' => $data['Kartu_Keluarga'],
+                   'Alamat' => $data['Alamat']
+               ]);
+               //masukan data ke kemampuan
+               $this->Kemampuan = new Kemampuan();
+               $this->Kemampuan->save([
+                   'ID_Kemampuan' => $data['ID_Kemampuan'],
+                   'Dapat_Baca_Huruf' => $data['Dapat_Baca_Huruf']
+               ]);
+               
+           } 
+    //    //arahkan ke halaman lread
+    //    session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
+    //    return redirect()->to('Read');
     }
 }

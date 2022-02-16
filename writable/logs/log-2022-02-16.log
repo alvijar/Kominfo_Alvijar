@@ -1,0 +1,182 @@
+ERROR - 2022-02-16 00:56:07 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 00:56:07 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(15): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+ERROR - 2022-02-16 00:59:42 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 00:59:42 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\system\Model.php(183): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\BaseModel.php(584): CodeIgniter\Model->doFindAll(0, 0)
+#6 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(15): CodeIgniter\BaseModel->findAll()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#11 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#12 {main}
+ERROR - 2022-02-16 02:21:59 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 02:21:59 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:27:10 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 02:27:10 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:34:23 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 02:34:23 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:34:25 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+CRITICAL - 2022-02-16 02:34:25 --> Table 'data_penduduk.identitas_pribadi' doesn't exist
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:35:32 --> Unknown column 'Data_Keluarga.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:35:32 --> Unknown column 'Data_Keluarga.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:35:37 --> Unknown column 'Data_Keluarga.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:35:37 --> Unknown column 'Data_Keluarga.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:37:16 --> Unknown column 'Kemampuan.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:37:16 --> Unknown column 'Kemampuan.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:37:17 --> Unknown column 'Kemampuan.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:37:17 --> Unknown column 'Kemampuan.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:39:01 --> Unknown column 'data_keluarga.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:39:01 --> Unknown column 'data_keluarga.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+ERROR - 2022-02-16 02:54:42 --> Unknown column 'data_keluarga.No_Urut' in 'on clause'
+CRITICAL - 2022-02-16 02:54:42 --> Unknown column 'data_keluarga.No_Urut' in 'on clause'
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(670): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseConnection.php(598): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Database\BaseBuilder.php(1455): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Models\Data_Pribadi.php(21): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(20): App\Models\Data_Pribadi->getdatapribadi()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#8 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-02-16 02:55:50 --> Undefined variable: kemampuan_
+#0 C:\xampp\htdocs\Kominfo_Alvijar\app\Views\landingpage.php(105): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 105, Array)
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(210): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\View\View.php(213): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\Common.php(1089): CodeIgniter\View\View->render('landingpage', Array, true)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(22): view('landingpage', Array)
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->index()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

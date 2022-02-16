@@ -15,10 +15,9 @@ class Data_Pribadi extends Model
     protected $useTimestamps = false;
     
     public function getdatapribadi(){
-        $session = session();
-        $data = $session->get('No_Urut');
         return $this->db->table('identitas_pribadi')
-        ->where('No_Urut',['No_Urut'=> $data])
+        ->join('data_keluarga','data_keluarga.KTP=identitas_pribadi.No_Urut')
+        ->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.No_Urut')
         ->get()->getResultArray();
     }
     // public function getalamat(){

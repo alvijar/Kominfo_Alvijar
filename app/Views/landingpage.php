@@ -34,18 +34,22 @@
       <tbody>
         
         <?php foreach($identitas_p as $data) :?>
-        <tr>
-          <td><?= $data['No_Urut'] ?></td>
-          <td><?= $data['Nama_Lengkap'] ?></td>
-          <td><?= $data['Status_Kawin'] ?></td>
-          <td><?= $data['Agama'] ?></td>
-          <td><?= $data['Tempat'] ?></td>
-          <td><?= $data['Tgl_Lahir'] ?></td>
-          <td><?= $data['J_Kelamin'] ?></td>
-          <td><?= $data['Kewarganegaraan'] ?></td>
-          <td><?= $data['Pendidikan_Terakhir'] ?></td>
-          <td><?= $data['KTP'] ?></td>
-          <td><?= $data['ID_Kemampuan'] ?></td>
+        <tr id="<?php echo $data['No_Urut']?>">
+          <td><?php echo $data['No_Urut'] ?></td>
+          <td><?php echo $data['Nama_Lengkap'] ?></td>
+          <td><?php echo $data['Status_Kawin'] ?></td>
+          <td><?php echo $data['Agama'] ?></td>
+          <td><?php echo $data['Tempat'] ?></td>
+          <td><?php echo $data['Tgl_Lahir'] ?></td>
+          <td><?php echo $data['J_Kelamin'] ?></td>
+          <td><?php echo $data['Kewarganegaraan'] ?></td>
+          <td><?php echo $data['Pendidikan_Terakhir'] ?></td>
+          <td><?php echo $data['KTP'] ?></td>
+          <td><?php echo $data['ID_Kemampuan'] ?></td>
+          <td>
+            <?php echo anchor($data['No_Urut'],'Edit'); ?></td>
+          <td>
+            <?php echo anchor($data['No_Urut'],'Hapus'); ?></td>
         </tr>
         <?php endforeach ?>
       </tbody>
@@ -98,13 +102,11 @@
           <div class="">
             <label class="">Kemampuan :</label>
             <select class="form-select" name="ID_Kemampuan" id="id_kemampuan" required>
-              <?php foreach ($kemampuan_ as $p) {?>
-                <option id="<?php echo $p["Dapat_Baca_Huruf"]; ?>" value="<?php echo $p["Dapat_Baca_Huruf"]; ?>">
-                  <option value="" disabled selected>--Pilih-- </option>
-                  <option value="Dapat" disabled selected>Dapat </option>
-                  <option value="Tidak" disabled selected>Tidak </option>
-                </option>
-              <?php } ?>
+              <option>
+                <option value="" disabled selected>--Pilih-- </option>
+                <option value="Dapat" disabled selected>Dapat </option>
+                <option value="Tidak" disabled selected>Tidak </option>
+              </option>
             </select>
           </div>
           <button class="" type="submit">Daftar</button>
