@@ -109,7 +109,9 @@
               </option>
             </select>
           </div>
-          <button class="" type="submit">Daftar</button>
+          <a href="<?php base_url(); ?>/Create"><button  type="button">
+                    Tambah Data <i ></i>
+                </button></a>
         </form>
       </div>
   </body>
