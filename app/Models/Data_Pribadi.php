@@ -16,16 +16,8 @@ class Data_Pribadi extends Model
     
     public function getdatapribadi(){
         return $this->db->table('identitas_pribadi')
-        ->join('data_keluarga','data_keluarga.KTP=identitas_pribadi.No_Urut')
-        ->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.No_Urut')
+        ->join('data_keluarga','data_keluarga.KTP=identitas_pribadi.KTP')
+        ->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.ID_Kemampuan')
         ->get()->getResultArray();
     }
-    // public function getalamat(){
-    //     return $this->db->table('data_keluarga')
-    //     ->get()->getResultArray();
-    // }
-    // public function getkemampuan(){
-    //     return $this->db->table('kemampuan')
-    //     ->get()->getResultArray();
-    // }
 }

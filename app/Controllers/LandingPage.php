@@ -5,53 +5,61 @@ namespace App\Controllers;
 use App\Models\Data_Keluarga;
 use App\Models\Data_Pribadi;
 use App\Models\Kemampuan;
-use CodeIgniter\Exceptions\PageNotFoundException;
 
 class LandingPage extends BaseController
 {
     public function __construct()
     {
-        //membuat user model untuk konek ke database 
+        //membuat data penduduk untuk konek ke database 
         $this->datapribadi = new Data_Pribadi();
     }
     public function index()
     {
         $model = new Data_Pribadi();
-        $data['identitas_p'] = $model->getdatapribadi();
+        $data['penduduk'] = $model->getdatapribadi();
         
         return view('landingpage', $data);
     }
-    public function membuat(){
-        $model = new Data_Keluarga();
-        $data['data_k'] = $model->getdatakeluarga();
+    public function membuatkemampuan(){
+        $model = new Kemampuan();
+        $data['kemampuan'] = $model->getkemampuan();
         
         return view('landingpage',$data);
     }
-    public function tampil_kemampuan($id){
-        $kemampuan = new Kemampuan();
-        $data['kemampuan_'] = $kemampuan->where('ID_Kemampuan', $id)->first();
-		
-        if(!$kemampuan['ID_Kemampuan']){
-            throw PageNotFoundException::forPageNotFound();
-        }
-        echo view('landingpage',$data);
+    public function membuatktp(){
+        $model = new Data_Keluarga();
+        $data['data_keluarga'] = $model->getdatakeluarga();
+        
+        return view('landingpage',$data);
+    }
+    public function membuatkartu_keluarga(){
+        $model = new Data_Keluarga();
+        $data['data_keluarga'] = $model->getdatakeluarga();
+        
+        return view('landingpage',$data);
+    }
+    public function membuatalamat(){
+        $model = new Data_Keluarga();
+        $data['data_keluarga'] = $model->getdatakeluarga();
+        
+        return view('landingpage',$data);
     }
 
     // CREATE DATA
-    public function tambah_datapribadi()
+    public function tambah_datapenduduk()
     {
        //ambil data dari form post membuat
        $data = $this->request->getPost();
        //var_dump($data);
        //ambil data penduduk di database yang nik sama 
-       $identitas_p = $this->Data_Pribadi->where('No_Urut', $data['No_Urut'])->first();
-       if($identitas_p){
+       $penduduk = $this->datapribadi->where('No_Urut', $data['No_Urut'])->first();
+       if($penduduk){
            //jika nik sudah terdaftar
            session()->setFlashdata('info', '<div class="alert alert-danger text-center">NIK sudah terpakai!</div>');
-           return redirect()->to('Create');
+           return redirect()->to('landingpage');
        }else{
                //masukan data ke tabel penduduk
-               $this->Data_Pribadi->save([
+               $this->datapribadi->save([
                    'No_Urut' => $data['No_Urut'],
                    'Nama_Lengkap' => $data['Nama_Lengkap'],
                    'Status_Kawin' => $data['Status_Kawin'],
@@ -65,22 +73,50 @@ class LandingPage extends BaseController
                    'ID_Kemampuan' => $data['ID_Kemampuan']    
                ]);
                //masukan data ke keluarga
-               $this->Data_Keluarga = new Data_Keluarga();
-               $this->Data_Keluarga->save([
+               $this->datakeluarga = new Data_Keluarga();
+               $this->datakeluarga->save([
+                   'No_Urut' => $data['No_Urut'],
                    'KTP' => $data['KTP'],
                    'Kartu_Keluarga' => $data['Kartu_Keluarga'],
                    'Alamat' => $data['Alamat']
                ]);
                //masukan data ke kemampuan
-               $this->Kemampuan = new Kemampuan();
-               $this->Kemampuan->save([
+               $this->kemampuan = new Kemampuan();
+               $this->kemampuan->save([
+                   'No_Urut' => $data['No_Urut'],
                    'ID_Kemampuan' => $data['ID_Kemampuan'],
                    'Dapat_Baca_Huruf' => $data['Dapat_Baca_Huruf']
                ]);
                
-           } 
-    //    //arahkan ke halaman lread
-    //    session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
-    //    return redirect()->to('Read');
+        } 
+
+       //arahkan ke halaman landingpage
+       session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
+       return redirect()->to('landingpage');
     }
+    public function merombak($no_urut)
+	{
+		var_dump($no_urut);
+	}
+    public function menghapus($no_urut)
+	{
+		
+        $this->datapribadi = new Data_Pribadi();
+        $this->datakeluarga = new Data_Keluarga();
+        $this->kemampuan = new Kemampuan();
+        // Memanggil function hapus
+        $hapus = $this->datapribadi->deletedatapribadi($no_urut);
+        $hapus = $this->datakeluarga->deletedatakeluarga($no_urut);
+        $hapus = $this->kemampuan->deletekemampuan($no_urut);
+
+
+        // Jika berhasil melakukan hapus data pribadi
+        if ($hapus) {
+            // Deklarasikan session flashdata dengan tipe warning
+            session()->setFlashdata('info', '<div class="alert alert-success text-center">Berhasil Menghapus Penduduk</div>');
+            // Redirect ke halaman landingpage
+            return redirect()->to('landingpage');
+        }
+            
+	}
 }
