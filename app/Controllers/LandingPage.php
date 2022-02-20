@@ -8,41 +8,42 @@ use App\Models\Kemampuan;
 
 class LandingPage extends BaseController
 {
+    // construct Bisa memanggil lebih dari 1 model
     public function __construct()
     {
         //membuat data penduduk untuk konek ke database 
         $this->datapribadi = new Data_Pribadi();
+        $this->datakeluarga = new Data_Keluarga();
+        $this->kemampuan = new Kemampuan();
     }
     public function index()
     {
-        $model = new Data_Pribadi();
-        $data['penduduk'] = $model->getdatapribadi();
-        
-        return view('landingpage', $data);
+        $data['identitas_pribadi'] = $this->datapribadi->getdatapribadi();
+        return view('CRUD/landingpage', $data);
     }
     public function membuatkemampuan(){
         $model = new Kemampuan();
         $data['kemampuan'] = $model->getkemampuan();
         
-        return view('landingpage',$data);
+        return view('CRUD/landingpage',$data);
     }
     public function membuatktp(){
         $model = new Data_Keluarga();
         $data['data_keluarga'] = $model->getdatakeluarga();
         
-        return view('landingpage',$data);
+        return view('CRUD/landingpage',$data);
     }
     public function membuatkartu_keluarga(){
         $model = new Data_Keluarga();
         $data['data_keluarga'] = $model->getdatakeluarga();
         
-        return view('landingpage',$data);
+        return view('CRUD/landingpage',$data);
     }
     public function membuatalamat(){
         $model = new Data_Keluarga();
         $data['data_keluarga'] = $model->getdatakeluarga();
         
-        return view('landingpage',$data);
+        return view('CRUD/landingpage',$data);
     }
 
     // CREATE DATA
@@ -52,11 +53,11 @@ class LandingPage extends BaseController
        $data = $this->request->getPost();
        //var_dump($data);
        //ambil data penduduk di database yang nik sama 
-       $penduduk = $this->datapribadi->where('No_Urut', $data['No_Urut'])->first();
-       if($penduduk){
+       $identitas_pribadi = $this->datapribadi->where('No_Urut', $data['No_Urut'])->first();
+       if($identitas_pribadi){
            //jika nik sudah terdaftar
            session()->setFlashdata('info', '<div class="alert alert-danger text-center">NIK sudah terpakai!</div>');
-           return redirect()->to('landingpage');
+           return redirect()->to('CRUD/landingpage');
        }else{
                //masukan data ke tabel penduduk
                $this->datapribadi->save([
@@ -73,7 +74,6 @@ class LandingPage extends BaseController
                    'ID_Kemampuan' => $data['ID_Kemampuan']    
                ]);
                //masukan data ke keluarga
-               $this->datakeluarga = new Data_Keluarga();
                $this->datakeluarga->save([
                    'No_Urut' => $data['No_Urut'],
                    'KTP' => $data['KTP'],
@@ -81,7 +81,6 @@ class LandingPage extends BaseController
                    'Alamat' => $data['Alamat']
                ]);
                //masukan data ke kemampuan
-               $this->kemampuan = new Kemampuan();
                $this->kemampuan->save([
                    'No_Urut' => $data['No_Urut'],
                    'ID_Kemampuan' => $data['ID_Kemampuan'],
@@ -92,7 +91,7 @@ class LandingPage extends BaseController
 
        //arahkan ke halaman landingpage
        session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
-       return redirect()->to('landingpage');
+       return redirect()->to('CRUD/landingpage');
     }
     public function merombak($no_urut)
 	{
@@ -115,7 +114,7 @@ class LandingPage extends BaseController
             // Deklarasikan session flashdata dengan tipe warning
             session()->setFlashdata('info', '<div class="alert alert-success text-center">Berhasil Menghapus Penduduk</div>');
             // Redirect ke halaman landingpage
-            return redirect()->to('landingpage');
+            return redirect()->to('CRUD/landingpage');
         }
             
 	}

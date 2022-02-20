@@ -35,26 +35,25 @@
         </tr>
       </thead>
       <tbody>
-        
-        <?php foreach($penduduk as $data) :?>
-        <tr id="<?php echo $data['No_Urut']?>">
-          <td><?php echo $data['No_Urut'] ?></td>
-          <td><?php echo $data['Nama_Lengkap'] ?></td>
-          <td><?php echo $data['Status_Kawin'] ?></td>
-          <td><?php echo $data['Agama'] ?></td>
-          <td><?php echo $data['Tempat'] ?></td>
-          <td><?php echo $data['Tgl_Lahir'] ?></td>
-          <td><?php echo $data['J_Kelamin'] ?></td>
-          <td><?php echo $data['Kewarganegaraan'] ?></td>
-          <td><?php echo $data['Pendidikan_Terakhir'] ?></td>
-          <td><?php echo $data['KTP'] ?></td>
-          <td><?php echo $data['Kartu_Keluarga'] ?></td>
-          <td><?php echo $data['Alamat'] ?></td>
-          <td><?php echo $data['ID_Kemampuan'] ?></td>
-          <td><?php echo $data['Dapat_Baca_Huruf'] ?></td>
+        <?php foreach($identitas_pribadi as $key => $value) :?>
+        <tr>
+          <td><?=$key + 1?></td>
+          <td><?=$value->Nama_Lengkap?></td>
+          <td><?=$value->Status_Kawin?></td>
+          <td><?=$value->Agama?></td>
+          <td><?=$value->Tmp_Lahir?></td>
+          <td><?=$value->Tgl_Lahir?></td>
+          <td><?=$value->J_Kelamin?></td>
+          <td><?=$value->Kewarganegaraan?></td>
+          <td><?=$value->Pendidikan_Terakhir?></td>
+          <td><?=$value->KTP?></td>
+          <td><?=$value->Kartu_Keluarga?></td>
+          <td><?=$value->Alamat?></td>
+          <td><?=$value->ID_Kemampuan?></td>
+          <td><?=$value->Dapat_Baca_Huruf?></td>
           <td>
-            <?php echo anchor($data['No_Urut'],'Edit'); ?>
-            <?php echo anchor($data['No_Urut'],'Hapus'); ?></td>
+            <a href="<?=site_url('CRUD/landingpage'.$value->No_Urut)?>">Edit</a>
+            <a href="<?=site_url('CRUD/landingpage'.$value->No_Urut)?>">Hapus</a></td>
         </tr>
         <?php endforeach ?>
       </tbody>
@@ -84,9 +83,10 @@
       <input class="" name="Kewarganegaraan" type="text" placeholder="Kewarganegaraan" required>
       <input class="" name="Pendidikan_Terakhir" type="text" placeholder="Pendidikan Terakhir" required>
       <input class="" name="KTP" type="text" placeholder="No. KTP" required>
+      <input class="" name="KTP" type="text" placeholder="No. Kartu Keluarga" required>
       <input class="" name="Alamat" type="text" placeholder="Alamat" required>
-      <select class="form-select" name="ID_Kemampuan" id="id_kemampuan" required>
-        <option value="" disabled selected>--Dapat Membaca Huruf ?-- </option>
+      <select class="form-select" name="Dapat_Baca_Huruf" id="id_kemampuan" required>
+        <option value="" disabled selected>Dapat Membaca Huruf ? </option>
         <option value="Dapat">Dapat</option>
         <option value="Tidak">Tidak</option>
       </select>
@@ -94,5 +94,6 @@
         <input type="submit" value="Tambah Data">
       </a>
     </div>
+    <!-- <?=print_r($identitas_pribadi)?> -->
   </body>
 </html>
