@@ -35,27 +35,28 @@
         </tr>
       </thead>
       <tbody>
-        <?php foreach($identitas_pribadi as $key => $value) :?>
-        <tr>
-          <td><?=$key + 1?></td>
-          <td><?=$value->Nama_Lengkap?></td>
-          <td><?=$value->Status_Kawin?></td>
-          <td><?=$value->Agama?></td>
-          <td><?=$value->Tmp_Lahir?></td>
-          <td><?=$value->Tgl_Lahir?></td>
-          <td><?=$value->J_Kelamin?></td>
-          <td><?=$value->Kewarganegaraan?></td>
-          <td><?=$value->Pendidikan_Terakhir?></td>
-          <td><?=$value->KTP?></td>
-          <td><?=$value->Kartu_Keluarga?></td>
-          <td><?=$value->Alamat?></td>
-          <td><?=$value->ID_Kemampuan?></td>
-          <td><?=$value->Dapat_Baca_Huruf?></td>
+        <?php 
+        $no = 1;
+        foreach($identitas_pribadi as $d){
+        ?>
+        <tr id="<?php echo $d['No_Urut']?>">
+          <td data-header="Nomor Urut"><?php echo $no++ ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Nama_Lengkap'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Status_Kawin'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Agama'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Tempat'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Tgl_Lahir'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['J_Kelamin'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Kewarganegaraan'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['Pendidikan_Terakhir'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['KTP'] ?></td>
+          <td data-header="Nomor Urut"><?php echo $d['ID_Kemampuan'] ?></td>
           <td>
-            <a href="<?=site_url('CRUD/landingpage'.$value->No_Urut)?>">Edit</a>
-            <a href="<?=site_url('CRUD/landingpage'.$value->No_Urut)?>">Hapus</a></td>
+            <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Edit'); ?>
+            <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Hapus'); ?>
+          </td>
         </tr>
-        <?php endforeach ?>
+        <?php } ?>
       </tbody>
     </table>
 
@@ -83,7 +84,7 @@
       <input class="" name="Kewarganegaraan" type="text" placeholder="Kewarganegaraan" required>
       <input class="" name="Pendidikan_Terakhir" type="text" placeholder="Pendidikan Terakhir" required>
       <input class="" name="KTP" type="text" placeholder="No. KTP" required>
-      <input class="" name="KTP" type="text" placeholder="No. Kartu Keluarga" required>
+      <input class="" name="Kartu_Keluarga" type="text" placeholder="No. Kartu Keluarga" required>
       <input class="" name="Alamat" type="text" placeholder="Alamat" required>
       <select class="form-select" name="Dapat_Baca_Huruf" id="id_kemampuan" required>
         <option value="" disabled selected>Dapat Membaca Huruf ? </option>

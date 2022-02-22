@@ -15,10 +15,9 @@ class Data_Pribadi extends Model
     protected $useTimestamps = false;
     
     public function getdatapribadi(){
-        $builder = $this->db->table('identitas_pribadi');
-        $builder->join('data_keluarga','data_keluarga.KTP=identitas_pribadi.KTP');
-        $builder->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.ID_Kemampuan');
-        $query = $builder->get();
-        return $query->getResult();
+        return $this->db->table('identitas_pribadi')
+        // ->join('data_keluarga','data_keluarga.KTP=identitas_pribadi.KTP')
+        // ->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.ID_Kemampuan')
+        ->get()->getResultArray();
     }
 }

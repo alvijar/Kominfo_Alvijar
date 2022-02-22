@@ -18,7 +18,8 @@ class LandingPage extends BaseController
     }
     public function index()
     {
-        $data['identitas_pribadi'] = $this->datapribadi->getdatapribadi();
+        $model = new Data_Pribadi();
+        $data['identitas_pribadi'] = $model->getdatapribadi();
         return view('CRUD/landingpage', $data);
     }
     public function membuatkemampuan(){
