@@ -22,31 +22,7 @@ class LandingPage extends BaseController
         $data['identitas_pribadi'] = $model->getdatapribadi();
         return view('CRUD/landingpage', $data);
     }
-    public function membuatkemampuan(){
-        $model = new Kemampuan();
-        $data['kemampuan'] = $model->getkemampuan();
-        
-        return view('CRUD/landingpage',$data);
-    }
-    public function membuatktp(){
-        $model = new Data_Keluarga();
-        $data['data_keluarga'] = $model->getdatakeluarga();
-        
-        return view('CRUD/landingpage',$data);
-    }
-    public function membuatkartu_keluarga(){
-        $model = new Data_Keluarga();
-        $data['data_keluarga'] = $model->getdatakeluarga();
-        
-        return view('CRUD/landingpage',$data);
-    }
-    public function membuatalamat(){
-        $model = new Data_Keluarga();
-        $data['data_keluarga'] = $model->getdatakeluarga();
-        
-        return view('CRUD/landingpage',$data);
-    }
-
+    
     // CREATE DATA
     public function tambah_datapenduduk()
     {
@@ -57,8 +33,8 @@ class LandingPage extends BaseController
        $identitas_pribadi = $this->datapribadi->where('No_Urut', $data['No_Urut'])->first();
        if($identitas_pribadi){
            //jika nik sudah terdaftar
-           session()->setFlashdata('info', '<div class="alert alert-danger text-center">NIK sudah terpakai!</div>');
-           return redirect()->to('CRUD/landingpage');
+           session()->setFlashdata('info', '<div class="alert alert-danger text-center">No. Urut sudah terpakai!</div>');
+           return redirect()->to('Create');
        }else{
                //masukan data ke tabel penduduk
                $this->datapribadi->save([
@@ -76,23 +52,23 @@ class LandingPage extends BaseController
                ]);
                //masukan data ke keluarga
                $this->datakeluarga->save([
-                   'No_Urut' => $data['No_Urut'],
                    'KTP' => $data['KTP'],
                    'Kartu_Keluarga' => $data['Kartu_Keluarga'],
-                   'Alamat' => $data['Alamat']
+                   'Alamat' => $data['Alamat'],
+                   'No_Urut' => $data['No_Urut']
                ]);
                //masukan data ke kemampuan
                $this->kemampuan->save([
-                   'No_Urut' => $data['No_Urut'],
                    'ID_Kemampuan' => $data['ID_Kemampuan'],
-                   'Dapat_Baca_Huruf' => $data['Dapat_Baca_Huruf']
+                   'Dapat_Baca_Huruf' => $data['Dapat_Baca_Huruf'],
+                   'No_Urut' => $data['No_Urut']
                ]);
                
         } 
 
        //arahkan ke halaman landingpage
        session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
-       return redirect()->to('CRUD/landingpage');
+       return redirect()->to('Read');
     }
     public function merombak($no_urut)
 	{
@@ -115,7 +91,7 @@ class LandingPage extends BaseController
             // Deklarasikan session flashdata dengan tipe warning
             session()->setFlashdata('info', '<div class="alert alert-success text-center">Berhasil Menghapus Penduduk</div>');
             // Redirect ke halaman landingpage
-            return redirect()->to('CRUD/landingpage');
+            return redirect()->to('Read');
         }
             
 	}
