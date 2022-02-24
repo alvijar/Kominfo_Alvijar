@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 11 Feb 2022 pada 10.36
+-- Waktu pembuatan: 24 Feb 2022 pada 07.47
 -- Versi server: 10.4.22-MariaDB
 -- Versi PHP: 7.4.27
 
@@ -30,8 +30,18 @@ SET time_zone = "+00:00";
 CREATE TABLE `data_keluarga` (
   `KTP` int(30) NOT NULL,
   `Kartu_Keluarga` int(30) NOT NULL,
-  `Alamat` varchar(50) NOT NULL
+  `Alamat` varchar(50) NOT NULL,
+  `No_Urut` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `data_keluarga`
+--
+
+INSERT INTO `data_keluarga` (`KTP`, `Kartu_Keluarga`, `Alamat`, `No_Urut`) VALUES
+(12345678, 5672891, 'Prasejarah', 0),
+(18711781, 19022091, 'Jalan Nalaj', 0),
+(187100001, 72777777, 'Jalan tol', 0);
 
 -- --------------------------------------------------------
 
@@ -54,11 +64,12 @@ CREATE TABLE `identitas_pribadi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `identiitas_pribadi`
+-- Dumping data untuk tabel `identitas_pribadi`
 --
 
-INSERT INTO `identiitas_pribadi` (`No_Urut`, `Nama_Lengkap`, `Status_Kawin`, `Agama`, `Tempat`, `Tgl_Lahir`, `J_Kelamin`, `Kewarganegaraan`, `Pendidikan_Terakhir`, `Kartu_Keluarga`, `ID_Kemampuan`) VALUES
-(1, 'Alvijar Akbar Pahlevi', 'Belum Kawin', 'Islam', 'Bandar Lampung', '1998-03-11', 'Laki-laki', 'Indonesia', 'S1', 12345678, 1);
+INSERT INTO `identitas_pribadi` (`No_Urut`, `Nama_Lengkap`, `Status_Kawin`, `Agama`, `Tempat`, `Tgl_Lahir`, `J_Kelamin`, `Kewarganegaraan`, `Pendidikan_Terakhir`, `KTP`, `ID_Kemampuan`) VALUES
+(1, 'Alvijar Akbar Pahlevi', 'Belum Kawin', 'Islam', 'Bandar Lampung', '1998-03-11', 'Laki-laki', 'Indonesia', 'S1', 12345678, 1),
+(2, 'Lili', 'Belum Kawin', 'Islam', 'Bandar Lampung', '2003-10-29', 'Perempuan', 'Indonesia', 'S3', 187100001, 2);
 
 -- --------------------------------------------------------
 
@@ -68,8 +79,17 @@ INSERT INTO `identiitas_pribadi` (`No_Urut`, `Nama_Lengkap`, `Status_Kawin`, `Ag
 
 CREATE TABLE `kemampuan` (
   `ID_Kemampuan` int(5) NOT NULL,
-  `Dapat_Baca_Huruf` enum('Dapat','Tidak') NOT NULL
+  `Dapat_Baca_Huruf` enum('Dapat','Tidak') NOT NULL,
+  `No_Urut` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `kemampuan`
+--
+
+INSERT INTO `kemampuan` (`ID_Kemampuan`, `Dapat_Baca_Huruf`, `No_Urut`) VALUES
+(1, 'Dapat', 1),
+(2, 'Dapat', 2);
 
 --
 -- Indexes for dumped tables
@@ -79,31 +99,33 @@ CREATE TABLE `kemampuan` (
 -- Indeks untuk tabel `data_keluarga`
 --
 ALTER TABLE `data_keluarga`
-  ADD PRIMARY KEY (`KTP`);
+  ADD PRIMARY KEY (`KTP`),
+  ADD KEY `No_Urut` (`No_Urut`);
 
 --
--- Indeks untuk tabel `identiitas_pribadi`
+-- Indeks untuk tabel `identitas_pribadi`
 --
-ALTER TABLE `identiitas_pribadi`
+ALTER TABLE `identitas_pribadi`
   ADD PRIMARY KEY (`No_Urut`),
   ADD KEY `ID_Kemampuan` (`ID_Kemampuan`),
-  ADD KEY `Kartu_Keluarga` (`Kartu_Keluarga`);
+  ADD KEY `Kartu_Keluarga` (`KTP`);
 
 --
 -- Indeks untuk tabel `kemampuan`
 --
 ALTER TABLE `kemampuan`
-  ADD PRIMARY KEY (`ID_Kemampuan`);
+  ADD PRIMARY KEY (`ID_Kemampuan`),
+  ADD KEY `No_Urut` (`No_Urut`);
 
 --
 -- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT untuk tabel `identiitas_pribadi`
+-- AUTO_INCREMENT untuk tabel `identitas_pribadi`
 --
-ALTER TABLE `identiitas_pribadi`
-  MODIFY `No_Urut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `identitas_pribadi`
+  MODIFY `No_Urut` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

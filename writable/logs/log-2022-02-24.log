@@ -1,0 +1,12 @@
+CRITICAL - 2022-02-24 00:22:19 --> There is no primary key defined when trying to make insert.
+#0 C:\xampp\htdocs\Kominfo_Alvijar\system\Model.php(229): CodeIgniter\Database\Exceptions\DataException::forEmptyPrimaryKey('insert')
+#1 C:\xampp\htdocs\Kominfo_Alvijar\system\BaseModel.php(738): CodeIgniter\Model->doInsert(Array)
+#2 C:\xampp\htdocs\Kominfo_Alvijar\system\Model.php(625): CodeIgniter\BaseModel->insert(Array, false)
+#3 C:\xampp\htdocs\Kominfo_Alvijar\system\BaseModel.php(658): CodeIgniter\Model->insert(Array, false)
+#4 C:\xampp\htdocs\Kominfo_Alvijar\app\Controllers\LandingPage.php(58): CodeIgniter\BaseModel->save(Array)
+#5 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(825): App\Controllers\LandingPage->tambah_datapenduduk()
+#6 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(412): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LandingPage))
+#7 C:\xampp\htdocs\Kominfo_Alvijar\system\CodeIgniter.php(320): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\Kominfo_Alvijar\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\Kominfo_Alvijar\system\Commands\Server\rewrite.php(43): require_once('C:\\xampp\\htdocs...')
+#10 {main}

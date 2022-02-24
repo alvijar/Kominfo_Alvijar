@@ -13,8 +13,8 @@
     <center>
       <h1>Tabel Penduduk</h1>
     </center>
-    <table class="table">
     <?php echo session()->getFlashdata('info'); ?>
+    <table class="table">
       <thead>
         <tr>
             <th>No. Urut</th>
@@ -41,19 +41,19 @@
         ?>
         <tr id="<?php echo $d['No_Urut']?>">
           <td data-header="Nomor Urut"><?php echo $no++ ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Nama_Lengkap'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Status_Kawin'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Agama'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Tempat'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Tgl_Lahir'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['J_Kelamin'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Kewarganegaraan'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Pendidikan_Terakhir'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['KTP'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Kartu_Keluarga'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Alamat'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['ID_Kemampuan'] ?></td>
-          <td data-header="Nomor Urut"><?php echo $d['Dapat_Baca_Huruf'] ?></td>
+          <td data-header="Nama Lengkap"><?php echo $d['Nama_Lengkap'] ?></td>
+          <td data-header="Status Kawin"><?php echo $d['Status_Kawin'] ?></td>
+          <td data-header="Agama"><?php echo $d['Agama'] ?></td>
+          <td data-header="Tempat Lahir"><?php echo $d['Tempat'] ?></td>
+          <td data-header="Tanggal Lahir"><?php echo $d['Tgl_Lahir'] ?></td>
+          <td data-header="Jenis Kelamin"><?php echo $d['J_Kelamin'] ?></td>
+          <td data-header="Kewarganegaraan"><?php echo $d['Kewarganegaraan'] ?></td>
+          <td data-header="Pendidikan Terakhir"><?php echo $d['Pendidikan_Terakhir'] ?></td>
+          <td data-header="No. KTP"><?php echo $d['KTP'] ?></td>
+          <td data-header="No. Kartu Keluarga"><?php echo $d['Kartu_Keluarga'] ?></td>
+          <td data-header="Alamat"><?php echo $d['Alamat'] ?></td>
+          <td data-header="No. ID Kemampuan"><?php echo $d['ID_Kemampuan'] ?></td>
+          <td data-header="Dapat Membaca Huruf"><?php echo $d['Dapat_Baca_Huruf'] ?></td>
           <td>
             <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Edit'); ?>
             <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Hapus'); ?>
@@ -70,7 +70,7 @@
         <input class="" name="No_Urut" type="text" placeholder="No. Urut" required>
         <input class="" name="Nama_Lengkap" type="text" placeholder="Nama Lengkap" required>
         <input class="" name="Status_Kawin" type="text" placeholder="Status Kawin" required>
-        <select class="form-select" name="Agama" id="agama" required>
+        <select class="form-select" name="Agama" required>
           <option value="" disabled selected>--Pilih Agama-- </option>
           <option value="Islam">Islam</option>
           <option value="Kristen">Kristen</option>
@@ -81,7 +81,7 @@
         </select>
         <input class="" name="Tempat" type="text" placeholder="Tempat Lahir" required>
         <input class="form-select" name="Tgl_Lahir" type="date" placeholder="Tanggal Lahir" required>
-        <select class="form-select" name="J_Kelamin" id="j_kelamin" required>
+        <select class="form-select" name="J_Kelamin" required>
           <option value="" disabled selected>--Pilih Jenis Kelamin-- </option>
           <option value="Laki-laki">Laki-laki</option>
           <option value="Perempuan">Perempuan</option>
@@ -91,8 +91,8 @@
         <input class="" name="KTP" type="text" placeholder="No. KTP" required>
         <input class="" name="Kartu_Keluarga" type="text" placeholder="No. Kartu Keluarga" required>
         <input class="" name="Alamat" type="text" placeholder="Alamat" required>
-        <input class="" name="ID_Kemampuan" type="text" placeholder="ID. Kemampuan" required>
-        <select class="form-select" name="Dapat_Baca_Huruf" id="dapat_baca_huruf" required>
+        <input class="" name="ID_Kemampuan" type="text" placeholder="ID. Kemampuan"required>
+        <select class="form-select" name="Dapat_Baca_Huruf" required>
           <option value="" disabled selected>Dapat Membaca Huruf ? </option>
           <option value="Dapat">Dapat</option>
           <option value="Tidak">Tidak</option>
