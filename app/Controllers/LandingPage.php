@@ -38,7 +38,7 @@ class LandingPage extends BaseController
        }else{
             //masukan data ke tabel identitas_pribadi
             $this->datapribadi->save([
-                'No_Urut' => $data['No_Urut'],
+                // 'No_Urut' => $data['No_Urut'],
                 'Nama_Lengkap' => $data['Nama_Lengkap'],
                 'Status_Kawin' => $data['Status_Kawin'],
                 'Agama' => $data['Agama'],

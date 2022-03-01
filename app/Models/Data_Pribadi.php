@@ -8,7 +8,7 @@ class Data_Pribadi extends Model
 {
     protected $table = "identitas_pribadi";
     protected $primaryKey = "No_Urut";
-    protected $allowedFields = ['No_Urut','Nama_Lengkap',
+    protected $allowedFields = ['Nama_Lengkap',
     'Status_Kawin','Agama','Tempat','Tgl_Lahir','J_Kelamin','Kewarganegaraan',
     'Pendidikan_Terakhir','KTP','ID_Kemampuan'];
     protected $useAutoIncrement = true;

@@ -8,7 +8,7 @@ class Kemampuan extends Model
 {
     protected $table = "kemampuan";
     protected $primaryKey = "ID_Kemampuan";
-    protected $allowedFields = ['ID_Kemampuan','Dapat_Baca_Huruf'];
+    protected $allowedFields = ['ID_Kemampuan','Dapat_Baca_Huruf','KTP'];
     protected $useAutoIncrement = true;
     protected $useTimestamps = false;
     
