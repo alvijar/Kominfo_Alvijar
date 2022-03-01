@@ -67,7 +67,7 @@
     <?php echo session()->getFlashdata('info'); ?>
     <form role="form" method="POST" action="<?php base_url();?>/LandingPage/tambah_datapenduduk">
       <div class="form">
-        <input class="" name="No_Urut" type="text" placeholder="No. Urut" required>
+        <!-- <input class="" name="No_Urut" type="text" placeholder="No. Urut" required> -->
         <input class="" name="Nama_Lengkap" type="text" placeholder="Nama Lengkap" required>
         <input class="" name="Status_Kawin" type="text" placeholder="Status Kawin" required>
         <select class="form-select" name="Agama" required>

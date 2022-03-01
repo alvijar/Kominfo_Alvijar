@@ -29,11 +29,11 @@ class LandingPage extends BaseController
        //ambil data dari form input
        $data = $this->request->getPost();
        //var_dump($data);
-       //ambil data penduduk di database yang no urut sama 
-       $identitas_pribadi = $this->datapribadi->where('No_Urut', $data['No_Urut'])->first();
+       //ambil data penduduk di database yang no ktp sama 
+       $identitas_pribadi = $this->datapribadi->where('KTP', $data['KTP'])->first();
        if($identitas_pribadi){
-           //jika no urut sudah terdaftar
-           session()->setFlashdata('info', '<div class="">No. Urut sudah terpakai!</div>');
+           //jika no ktp sudah terdaftar
+           session()->setFlashdata('info', '<div class="">No. KTP sudah terpakai!</div>');
            return redirect()->to('CRUD/landingpage');
        }else{
             //masukan data ke tabel identitas_pribadi
@@ -54,14 +54,13 @@ class LandingPage extends BaseController
             $this->datakeluarga->save([
                 'KTP' => $data['KTP'],
                 'Kartu_Keluarga' => $data['Kartu_Keluarga'],
-                'Alamat' => $data['Alamat'],
-                'No_Urut' => $data['No_Urut']
+                'Alamat' => $data['Alamat']
             ]);
             //masukan data ke kemampuan
             $this->kemampuan->save([
                 'ID_Kemampuan' => $data['ID_Kemampuan'],
                 'Dapat_Baca_Huruf' => $data['Dapat_Baca_Huruf'],
-                'No_Urut' => $data['No_Urut']
+                'KTP' => $data['KTP']
             ]);
                
         } 
