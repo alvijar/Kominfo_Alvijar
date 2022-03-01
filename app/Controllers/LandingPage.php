@@ -54,7 +54,8 @@ class LandingPage extends BaseController
             $this->datakeluarga->save([
                 'KTP' => $data['KTP'],
                 'Kartu_Keluarga' => $data['Kartu_Keluarga'],
-                'Alamat' => $data['Alamat']
+                'Alamat' => $data['Alamat'],
+                'ID_Kemampuan' => $data['ID_Kemampuan']
             ]);
             //masukan data ke kemampuan
             $this->kemampuan->save([
@@ -69,20 +70,20 @@ class LandingPage extends BaseController
        session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
        return redirect()->to('CRUD/landingpage');
     }
-    public function merombak($no_urut)
+    public function merombak($No_Urut)
 	{
-		var_dump($no_urut);
+		var_dump($No_Urut);
 	}
-    public function menghapus($no_urut)
+    public function menghapus($No_Urut)
 	{
 		
         $this->datapribadi = new Data_Pribadi();
         $this->datakeluarga = new Data_Keluarga();
         $this->kemampuan = new Kemampuan();
         // Memanggil function hapus
-        $hapus = $this->datapribadi->deletedatapribadi($no_urut);
-        $hapus = $this->datakeluarga->deletedatakeluarga($no_urut);
-        $hapus = $this->kemampuan->deletekemampuan($no_urut);
+        $hapus = $this->datapribadi->deletedatapribadi($No_Urut);
+        // $hapus = $this->datakeluarga->deletedatakeluarga($No_Urut);
+        // $hapus = $this->kemampuan->deletekemampuan($No_Urut);
 
 
         // Jika berhasil melakukan hapus data pribadi

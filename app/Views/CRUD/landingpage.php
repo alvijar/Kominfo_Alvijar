@@ -55,8 +55,8 @@
           <td data-header="No. ID Kemampuan"><?php echo $d['ID_Kemampuan'] ?></td>
           <td data-header="Dapat Membaca Huruf"><?php echo $d['Dapat_Baca_Huruf'] ?></td>
           <td>
-            <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Edit'); ?>
-            <?php echo anchor('CRUD/landingpage/'.$d['No_Urut'],'Hapus'); ?>
+            <?php echo anchor('LandingPage/merombak'.$d['No_Urut'],'Edit'); ?>
+            <?php echo anchor('LandingPage/menghapus'.$d['No_Urut'],'Hapus'); ?>
           </td>
         </tr>
         <?php } ?>

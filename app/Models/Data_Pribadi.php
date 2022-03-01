@@ -20,4 +20,8 @@ class Data_Pribadi extends Model
         ->join('kemampuan','kemampuan.ID_Kemampuan=identitas_pribadi.ID_Kemampuan')
         ->get()->getResultArray();
     }
+    public function deletedatapribadi($No_Urut){
+        return $this->db->table('identitas_pribadi')
+        ->delete(['No_Urut' => $No_Urut]);
+    }
 }
