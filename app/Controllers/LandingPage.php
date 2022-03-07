@@ -26,16 +26,23 @@ class LandingPage extends BaseController
     // CREATE DATA
     public function tambah_datapenduduk()
     {
-       //ambil data dari form input
-       $data = $this->request->getPost();
-       //var_dump($data);
-       //ambil data penduduk di database yang no ktp sama 
-       $identitas_pribadi = $this->datapribadi->where('KTP', $data['KTP'])->first();
-       if($identitas_pribadi){
-           //jika no ktp sudah terdaftar
-           session()->setFlashdata('info', '<div class="">No. KTP sudah terpakai!</div>');
-           return redirect()->to('CRUD/landingpage');
-       }else{
+        //ambil data dari form input
+        $data = $this->request->getPost();
+        //var_dump($data);
+        //ambil data penduduk di database yang no ktp sama 
+        $identitas_pribadi = $this->datapribadi->where('KTP', $data['KTP'])->first();
+        $kemampuan_ = $this->kemampuan->where('ID_Kemampuan', $data['ID_Kemampuan'])->first();
+        if($identitas_pribadi){
+            //jika no ktp sudah terdaftar
+            session()->setFlashdata('info', '<div type="text">No. KTP sudah terpakai!</div>');
+            return redirect()->to('CRUD/landingpage');
+        }
+        else if($kemampuan_){
+            //jika id kemampuan sudah terdaftar
+            session()->setFlashdata('infoIdKemampuan', '<div type="text">Id Kemampuan sudah terpakai!</div>');
+            return redirect()->to('CRUD/landingpage');
+        }
+        else{
             //masukan data ke tabel identitas_pribadi
             $this->datapribadi->save([
                 // 'No_Urut' => $data['No_Urut'],
@@ -66,9 +73,9 @@ class LandingPage extends BaseController
                
         } 
 
-       //arahkan ke halaman landingpage
-       session()->setFlashdata('info', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
-       return redirect()->to('CRUD/landingpage');
+        //arahkan ke halaman landingpage
+        session()->setFlashdata('infoBerhasil', 'Anda Berhasil Memasukan Data, Silahkan Cek!');
+        return redirect()->to('CRUD/landingpage');
     }
     public function merombak($No_Urut)
 	{

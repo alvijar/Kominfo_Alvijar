@@ -13,7 +13,9 @@
     <center>
       <h1>Tabel Penduduk</h1>
     </center>
+    <?php echo session()->getFlashdata('infoBerhasil'); ?>
     <?php echo session()->getFlashdata('info'); ?>
+    <?php echo session()->getFlashdata('infoIdKemampuan'); ?>
     <table class="table">
       <thead>
         <tr>
@@ -64,10 +66,9 @@
     </table>
 
     <h1>Daftar Untuk Mengisi Tabel Kependudukan.</h1>
-    <?php echo session()->getFlashdata('info'); ?>
+    <?php echo session()->getFlashdata('infoBerhasil'); ?>
     <form role="form" method="POST" action="<?php base_url();?>/LandingPage/tambah_datapenduduk">
       <div class="form">
-        <!-- <input class="" name="No_Urut" type="text" placeholder="No. Urut" required> -->
         <input class="" name="Nama_Lengkap" type="text" placeholder="Nama Lengkap" required>
         <input class="" name="Status_Kawin" type="text" placeholder="Status Kawin" required>
         <select class="form-select" name="Agama" required>
@@ -89,9 +90,11 @@
         <input class="" name="Kewarganegaraan" type="text" placeholder="Kewarganegaraan" required>
         <input class="" name="Pendidikan_Terakhir" type="text" placeholder="Pendidikan Terakhir" required>
         <input class="" name="KTP" type="text" placeholder="No. KTP" required>
+        <?php echo session()->getFlashdata('info'); ?>
         <input class="" name="Kartu_Keluarga" type="text" placeholder="No. Kartu Keluarga" required>
         <input class="" name="Alamat" type="text" placeholder="Alamat" required>
         <input class="" name="ID_Kemampuan" type="text" placeholder="ID. Kemampuan"required>
+        <?php echo session()->getFlashdata('infoIdKemampuan'); ?>
         <select class="form-select" name="Dapat_Baca_Huruf" required>
           <option value="" disabled selected>Dapat Membaca Huruf ? </option>
           <option value="Dapat">Dapat</option>
